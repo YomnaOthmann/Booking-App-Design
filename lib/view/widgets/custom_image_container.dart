@@ -12,8 +12,8 @@ class CustomImage extends StatelessWidget {
       child: ClipRRect(
         borderRadius: const BorderRadius.all(Radius.circular(120)),
         child: Container(
-          height: 300,
-          width: 180,
+          height: 250,
+          width: 160,
           color: Colors.grey[300],
           child: Container(
             decoration: BoxDecoration(

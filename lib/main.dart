@@ -16,7 +16,7 @@ class BookingApp extends StatelessWidget {
       home: const OnBoardingScreen(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        fontFamily: "Ubunto",
+        fontFamily: "Ubuntu",
       ),
       routes: {
         "Home Screen": (context) => const HomeScreen(),

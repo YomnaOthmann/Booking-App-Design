@@ -22,15 +22,15 @@ class OnBoardingScreen extends StatelessWidget {
               child: Stack(
                 children: const [
                   Positioned(
-                    top: 60,
+                    top: 80,
                     left: 120,
                     child: CustomImage(
                         //image: "assets/images/waterfall.jpeg",
                         ),
                   ),
                   Positioned(
-                    top: 20,
-                    left: 30,
+                    top: 30,
+                    left: 50,
                     child: CustomImage(
                       image: "assets/images/balloons.jpeg",
                     ),
@@ -44,7 +44,7 @@ class OnBoardingScreen extends StatelessWidget {
             const Text(
               "Travel with ease.",
               style: TextStyle(
-                color: Color(0xff2B3467),
+                color: AppColors.kHeadTitleColor,
                 fontWeight: FontWeight.bold,
                 fontSize: 36,
               ),
@@ -62,7 +62,7 @@ class OnBoardingScreen extends StatelessWidget {
             ),
             // ignore: prefer_const_constructors
             SizedBox(
-              height: 10,
+              height: 30,
             ),
             CustomButton(
               onPressed: () {
