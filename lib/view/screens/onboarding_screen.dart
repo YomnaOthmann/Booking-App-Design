@@ -39,7 +39,7 @@ class OnBoardingScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 50,
+              height: 20,
             ),
             const Text(
               "Travel with ease.",
@@ -62,7 +62,7 @@ class OnBoardingScreen extends StatelessWidget {
             ),
             // ignore: prefer_const_constructors
             SizedBox(
-              height: 30,
+              height: 10,
             ),
             CustomButton(
               onPressed: () {
