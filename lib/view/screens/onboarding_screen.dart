@@ -24,9 +24,7 @@ class OnBoardingScreen extends StatelessWidget {
                   Positioned(
                     top: 80,
                     left: 120,
-                    child: CustomImage(
-                        //image: "assets/images/waterfall.jpeg",
-                        ),
+                    child: CustomImage(),
                   ),
                   Positioned(
                     top: 30,
@@ -65,6 +63,7 @@ class OnBoardingScreen extends StatelessWidget {
               height: 30,
             ),
             CustomButton(
+              size: const Size(200, 60),
               onPressed: () {
                 Navigator.pushReplacementNamed(context, "Home Screen");
               },

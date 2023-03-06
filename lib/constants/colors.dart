@@ -11,5 +11,5 @@ class AppColors {
   );
 
   static const Color kOnBoardingButtonColor = Color(0xff25A79F);
-  static const Color kHeadTitleColor = Color(0xff2B3467);
+  static const Color kHeadTitleColor = Color.fromARGB(255, 26, 33, 66);
 }

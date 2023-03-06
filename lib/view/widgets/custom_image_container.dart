@@ -13,7 +13,7 @@ class CustomImage extends StatelessWidget {
         borderRadius: const BorderRadius.all(Radius.circular(120)),
         child: Container(
           height: 250,
-          width: 160,
+          width: 180,
           color: Colors.grey[300],
           child: Container(
             decoration: BoxDecoration(

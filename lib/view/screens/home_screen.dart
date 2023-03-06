@@ -1,6 +1,14 @@
 import 'package:booking_app_design/constants/colors.dart';
+import 'package:booking_app_design/models/item_model.dart';
+import 'package:booking_app_design/view/screens/about_screen.dart';
+import 'package:booking_app_design/view/widgets/custom_appbar.dart';
+import 'package:booking_app_design/view/widgets/custom_header.dart';
+import 'package:booking_app_design/view/widgets/custom_textfield.dart';
+import 'package:booking_app_design/view/widgets/custom_recommended_list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+import '../widgets/custom_trending_item.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -8,61 +16,87 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        systemOverlayStyle: const SystemUiOverlayStyle(
-            statusBarColor: Colors.transparent,
-            statusBarIconBrightness: Brightness.dark),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: IconButton(
-          icon: const Padding(
-            padding: EdgeInsetsDirectional.only(start: 16.0),
-            child: Icon(
-              Icons.menu,
-              size: 30,
-              color: Colors.black,
-            ),
-          ),
-          onPressed: () {},
-        ),
-      ),
+      appBar: const PreferredSize(
+          preferredSize: Size(double.infinity, 70), child: CustomAppBar()),
       body: Container(
-        padding: const EdgeInsets.all(20),
+        height: double.maxFinite,
+        padding: const EdgeInsetsDirectional.only(start: 30),
         width: double.maxFinite,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const SizedBox(
-              height: 30,
-            ),
-            const Text(
-              "Where do you \nwant to go?",
-              style: TextStyle(
-                color: AppColors.kHeadTitleColor,
-                fontSize: 36,
-                fontWeight: FontWeight.bold,
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const SizedBox(
+                height: 20,
               ),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            TextField(
-              decoration: InputDecoration(
-                  prefixIcon: const Icon(Icons.search_rounded),
-                  fillColor: Colors.grey[100],
-                  filled: true,
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                    borderSide: const BorderSide(
-                      color: Colors.transparent,
-                    ),
+              const Text(
+                "Where do you \nwant to go?",
+                style: TextStyle(
+                  color: AppColors.kHeadTitleColor,
+                  fontSize: 36,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 30),
+              const CustomTextField(),
+              const SizedBox(height: 15),
+              const CustomHeader(
+                headline: "Recommended",
+              ),
+              SizedBox(height: 15),
+              SizedBox(
+                height: 250,
+                child: ListView.separated(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) => CustomRecommendedListItem(
+                    model: items[index],
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => AboutScreen(
+                                  model: items[index],
+                                )),
+                      );
+                    },
                   ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  )),
-            ),
-          ],
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(width: 25),
+                  itemCount: items.length,
+                ),
+              ),
+              // ignore: prefer_const_constructors
+              SizedBox(height: 15),
+              const CustomHeader(headline: "Trending this month"),
+              SizedBox(height: 15),
+              SizedBox(
+                height: 80,
+                child: ListView.separated(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) => CustomTrendingItem(
+                    model: items[index],
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => AboutScreen(
+                                  model: items[index],
+                                )),
+                      );
+                    },
+                  ),
+                  separatorBuilder: (context, index) => const SizedBox(
+                    width: 30,
+                  ),
+                  itemCount: items.length,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
