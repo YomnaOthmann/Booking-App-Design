@@ -6,7 +6,6 @@ import 'package:booking_app_design/view/widgets/custom_header.dart';
 import 'package:booking_app_design/view/widgets/custom_textfield.dart';
 import 'package:booking_app_design/view/widgets/custom_recommended_list_item.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../widgets/custom_trending_item.dart';
 
@@ -45,7 +44,7 @@ class HomeScreen extends StatelessWidget {
               const CustomHeader(
                 headline: "Recommended",
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               SizedBox(
                 height: 250,
                 child: ListView.separated(
@@ -71,7 +70,7 @@ class HomeScreen extends StatelessWidget {
               // ignore: prefer_const_constructors
               SizedBox(height: 15),
               const CustomHeader(headline: "Trending this month"),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               SizedBox(
                 height: 80,
                 child: ListView.separated(

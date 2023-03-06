@@ -1,7 +1,5 @@
 import 'package:booking_app_design/models/item_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class CustomTrendingItem extends StatelessWidget {
   const CustomTrendingItem({super.key, required this.model, this.onTap});
@@ -19,7 +17,7 @@ class CustomTrendingItem extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: Image.asset(
-                model!.image,
+                model.image,
                 width: 80,
                 height: 80,
                 fit: BoxFit.fill,

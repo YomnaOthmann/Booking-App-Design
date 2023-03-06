@@ -1,4 +1,3 @@
-import 'package:booking_app_design/constants/colors.dart';
 import 'package:booking_app_design/view/widgets/custom_subtitle.dart';
 import 'package:flutter/material.dart';
 
